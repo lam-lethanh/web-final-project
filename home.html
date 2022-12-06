@@ -534,42 +534,5 @@
 
 		<!-- Footer -->
 		<div id="footer"></div>
-
-		<script>
-			const test = document.querySelector(".test");
-			let html = "";
-			for (let i = 0; i < 3; i++) {
-				html += `
-				<div class="test-item">
-					<a href="detail.html?id=${i}">Button ${i}</a>
-				</div>
-				`;
-			}
-
-			test.innerHTML = html;
-
-			// Search
-			const searchBox = document.getElementById("search-input");
-			searchBox.onkeypress = function (event) {
-				if (event.key === "Enter") {
-					window.location.href =
-						"http://127.0.0.1:5500/detail.html?" + searchBox.value;
-				}
-			};
-		</script>
-
-		<!-- <script>
-			let html = "";
-			for (let i = 0; i < 3; i++) {
-				let testBox = document.querySelector(".test");
-				html += `
-				<div class="test-item">
-					<a href="detail.html?id=${i}">button ${i}</a>
-					</div>
-					`;
-				testBox.innerHTML = html;
-			}
-			window.location.href = "http://127.0.0.1:5500/detail.html?mienbac";
-		</script> -->
 	</body>
 </html>
