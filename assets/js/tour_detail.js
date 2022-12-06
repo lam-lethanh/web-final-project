@@ -9,13 +9,11 @@ function getParams() {
 	return params;
 }
 
-// Define add Day function
-Date.prototype.addDays = function (days) {
-	var date = new Date(this.valueOf());
-	date.setDate(date.getDate() + days);
-	return date;
-};
-
+// Function random from min to max
+function getRndInteger(min, max) {
+	return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+let listTour = [];
 // Get tourDetail
 fetch("assets/data/tours.json")
 	.then(function (response) {
@@ -35,11 +33,11 @@ fetch("assets/data/tours.json")
 				if (tour.discount == 0) {
 					price = tour.priceTicket.adult;
 				} else {
-					Price =
-						(Number(listTour[i].priceTicket.adult.split(".").join("")) *
-							(100 - Number(listTour[i].discount))) /
+					price =
+						(Number(tour.priceTicket.adult.split(".").join("")) *
+							(100 - Number(tour.discount))) /
 						100;
-					Price = Intl.NumberFormat().format(newPrice);
+					price = Intl.NumberFormat().format(price);
 				}
 				let htmlMain = `
             <div class="main">
@@ -63,12 +61,18 @@ fetch("assets/data/tours.json")
                                 ${price}đ<span>/khách</span>
                             </p>
                             <button class="main__heading-right--book">
-                                <span class="material-icons-outlined"> shopping_cart </span>
-                                Đặt ngay
+                                <a href="booking.html?id=${tour.id}">
+                                    <span class="material-icons-outlined"> shopping_cart </span>
+                                    Đặt ngay
+		                        </a>
                             </button>
                         </div>
                         <div class="main__heading-right-bottom">
-                            <button>Liên hệ tư vấn</button>
+                            <button>
+                                <a href="contact.html">
+                                    Liên hệ tư vấn
+                                </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -219,6 +223,7 @@ fetch("assets/data/tours.json")
                 </div>
             </div>
                 `;
+
 				// Load time line
 				let htmlTimeline = `
                 <div class="timeline">
@@ -244,7 +249,6 @@ fetch("assets/data/tours.json")
 						(myDate.getMonth() + 1) +
 						"/" +
 						myDate.getFullYear();
-					console.log(dayTimeline);
 
 					htmlTimelineDays += `
                     <div class="timeline__right-days--day">
@@ -266,10 +270,209 @@ fetch("assets/data/tours.json")
 				htmlTimeline += htmlTimelineDays;
 				htmlTimeline += htmlTimelineDesc;
 				htmlTimeline += "</div>";
+				htmlTimeline += "</div>";
 
-				// End timeline
+				// Load infomation
+				myDate = new Date(
+					date.getTime() + Number(tour.time.split("-")[0]) * 24 * 60 * 60 * 1000
+				);
+				let returnDay =
+					myDate.getDate() +
+					"/" +
+					(myDate.getMonth() + 1) +
+					"/" +
+					myDate.getFullYear();
 
-				document.querySelector(".content").innerHTML = htmlMain + htmlTimeline;
+				// Calculate arrival time start
+				let movingTime = tour.movingTime.split(":");
+				let hourMoving = Number(movingTime[0]);
+				let minuteMoving = Number(movingTime[1]);
+
+				let departureTime = tour.departureTime.split(":");
+				let minuteDeparture = Number(departureTime[1]);
+				let hourDeparture = Number(departureTime[0]);
+
+				let arrivalTimeStart = ["", ""];
+
+				if (minuteDeparture + minuteMoving >= 60) {
+					arrivalTimeStart[1] = minuteDeparture + minuteMoving - 60;
+					arrivalTimeStart[0] = hourMoving + hourDeparture + 1;
+				} else {
+					arrivalTimeStart[1] = minuteDeparture + minuteMoving;
+					arrivalTimeStart[0] = hourMoving + hourDeparture;
+				}
+				arrivalTimeStart[0] =
+					arrivalTimeStart[0] >= 24
+						? arrivalTimeStart[0] - 24
+						: arrivalTimeStart[0];
+
+				// Calculate arrival time end
+				let returnTime = tour.returnTime.split(":");
+				let minuteReturn = Number(returnTime[1]);
+				let hourReturn = Number(returnTime[0]);
+				let arrivalTimeEnd = ["", ""];
+
+				if (minuteDeparture + minuteReturn >= 60) {
+					arrivalTimeEnd[1] = minuteReturn + minuteMoving - 60;
+					arrivalTimeEnd[0] = hourMoving + hourReturn + 1;
+				} else {
+					arrivalTimeEnd[1] = minuteReturn + minuteMoving;
+				}
+				arrivalTimeEnd[0] =
+					arrivalTimeEnd[0] >= 24 ? arrivalTimeEnd[0] - 24 : arrivalTimeEnd[0];
+
+				// Calculate gather time
+				let gatherTime = ["", ""];
+				if (minuteDeparture - 30 < 0) {
+					gatherTime[1] = minuteDeparture - 30 + 60;
+					gatherTime[0] = hourDeparture - 1;
+				} else {
+					gatherTime[1] = minuteDeparture - 30;
+					gatherTime[0] = hourDeparture;
+				}
+
+				let htmlInfomation = `
+                <div class="information">
+                <div class="information-left">
+                    <p class="information-title">Chi tiết tour</p>
+                    <div class="information__detail">
+                        <div class="information__detail-left">
+                            <div class="information__detail-left--title">
+                                Ngày đi - <span>${tour.dateStart}</span>
+                            </div>
+                            <div class="information__detail-left-location">
+                                <div class="information__detail-left-location-pre">
+                                    ${tour.startLocation}
+                                    <p>(${tour.departureTime})</p>
+                                </div>
+                                <div class="line-transport">
+                                    <span class="material-icons-outlined">
+                                        directions_bus_filled
+                                    </span>
+                                </div>
+                                <div class="information__detail-left-location-pre">
+                                    ${tour.name.split(" - ")[0]}
+                                    <p>(${arrivalTimeStart.join(":")})</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="information__detail-right">
+                            <div class="information__detail-left--title">
+                                Ngày về - <span>${returnDay}</span>
+                            </div>
+                            <div class="information__detail-left-location">
+                                <div class="information__detail-left-location-pre">
+                                ${tour.name.split(" - ")[0]}
+                                    <p>(${tour.returnTime})</p>
+                                </div>
+                                <div class="line-transport">
+                                    <span class="material-icons-outlined">
+                                        directions_bus_filled
+                                    </span>
+                                </div>
+                                <div class="information__detail-left-location-pre">
+                                    ${tour.startLocation}
+                                    <p>(${arrivalTimeEnd.join(":")})</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="information__concentrate">
+                        <p class="information-title">Thông tin tập trung</p>
+                        <p class="information__concentrate-day">
+                            Ngày giờ tập trung: <span>${gatherTime.join(
+															":"
+														)} - ${tour.dateStart}</span>
+                        </p>
+                        <p class="information__concentrate-day">
+                            Nơi tập trung: <span>${tour.gatheringPlace}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="information__right">
+                    <p class="information-title">Giá tour</p>
+                    <div class="information__right-contain">
+                        <div class="information__right-col">
+                            <div class="information__right-col--title">Loại khách</div>
+                            <p>Người lớn (từ 12 tuổi trở lên)</p>
+                            <p>Trẻ em (từ 5-11 tuổi)</p>
+                            <p>Trẻ nhỏ (từ 2-4 tuổi)</p>
+                            <p>Em bé (dưới 2 tuổi)</p>
+                        </div>
+                        <div class="information__right-col">
+                            <div class="information__right-col--title">Giá tour</div>
+                            <p>${tour.priceTicket.adult}đ</p>
+                            <p>${tour.priceTicket.children}đ</p>
+                            <p>${tour.priceTicket.kid}đ</p>
+                            <p>${tour.priceTicket.baby}đ</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                `;
+
+				document.querySelector(".content").innerHTML =
+					htmlMain + htmlTimeline + htmlInfomation;
+				// Break the loop
+				break;
 			}
 		}
+
+		let randomMaybeLike = [];
+		while (randomMaybeLike.length < 4) {
+			let numberRandom = getRndInteger(0, 7);
+			if (
+				!randomMaybeLike.includes(numberRandom) &&
+				numberRandom != getParams().id
+			) {
+				randomMaybeLike.push(numberRandom);
+			}
+		}
+		// Load maybe like list
+		let htmlMaybeLike = "";
+		for (let i = 0; i < randomMaybeLike.length; i++) {
+			let maybeLikeTour = data[randomMaybeLike[i]];
+
+			let price = "";
+			if (maybeLikeTour.discount == 0) {
+				price = maybeLikeTour.priceTicket.adult;
+			} else {
+				price =
+					(Number(maybeLikeTour.priceTicket.adult.split(".").join("")) *
+						(100 - Number(maybeLikeTour.discount))) /
+					100;
+				price = Intl.NumberFormat().format(price);
+			}
+			htmlMaybeLike += `
+        <div class="maybe-like__item">
+            <div class="maybe-like__item-img">
+                <a href="tour_detail.html?id=${maybeLikeTour.id}">
+                    <img src="./assets/image/tours/${maybeLikeTour.image[0]}" alt="" />
+                </a>
+        </div>
+        <div class="maybe-like__item-date">${maybeLikeTour.dateStart}</div>
+        <div class="maybe-like__item-title">
+            <a href="tour_detail.html?id=">
+            ${maybeLikeTour.name}
+            </a>
+        </div>
+        <div class="maybe-like__item-departure">
+            Nơi khởi hành: ${maybeLikeTour.startLocation}
+        </div>
+        <div class="maybe-like__item-price">${price}đ</div>
+        <div class="maybe-like__item-btn">
+            <button>
+            <a href="booking.html?id=${maybeLikeTour.id}">
+                Đặt ngay
+            </a>
+            </button>
+            <button>
+                <a href="tour_detail.html?id=${maybeLikeTour.id}">Xem chi tiết</a>
+            </button>
+        </div>
+    </div>
+        `;
+		}
+
+		document.querySelector(".maybe-like__list").innerHTML = htmlMaybeLike;
 	});
