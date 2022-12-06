@@ -163,7 +163,7 @@
 	display: none;
 	position: absolute;
 	background-color: #f4f7ff;
-	bottom: -34rem;
+	top: 5rem;
 	right: 0;
 	padding: 12px;
 	width: 30rem;
@@ -204,6 +204,12 @@
 	outline: none;
 	border-radius: var(--border-radius-input);
 	padding: 0.8rem 1.6rem;
+}
+
+.message-error {
+	color: var(--red-color);
+	font-size: 1.2rem;
+	margin-top: 4px;
 }
 
 .remember-forgot {

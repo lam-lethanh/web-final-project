@@ -4,9 +4,15 @@ section {
 
 /* Banner */
 #banner {
+	margin-top: calc(var(--header-height) + 30px);
 	width: 100%;
 	height: 45rem;
-	background-color: var(--primary-color);
+}
+
+#banner img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 #quick-search {
@@ -58,6 +64,7 @@ section {
 .tab-content .list-input {
 	margin-top: 2rem;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-around;
 }
@@ -70,19 +77,22 @@ section {
 	border-radius: var(--border-radius-img-item);
 	padding: 0.8rem 1.5rem;
 	background-color: #fff;
+	margin: 0.8rem 0;
 }
 
 .tab-content .list-input .input-box .choice {
 	display: flex;
 	flex-direction: column;
 	gap: 0.8rem;
+	width: 100%;
 }
 
 .tab-content .list-input .input-box .choice label {
 	font-size: 1.4rem;
 }
 
-.tab-content .list-input .input-box .choice input {
+.tab-content .list-input .input-box .choice input,
+.tab-content .list-input .input-box .choice select {
 	padding: 0.2rem 0.4rem;
 }
 
@@ -90,12 +100,9 @@ section {
 	cursor: pointer;
 }
 
-.tab-content .list-input .input-box .choice #start-location {
-	width: 13rem;
-}
-
+.tab-content .list-input .input-box .choice #start-location,
 .tab-content .list-input .input-box .choice #end-location {
-	width: 16rem;
+	width: 100%;
 }
 
 .tab-content .list-input .input-box .choice #number-day {
@@ -116,7 +123,6 @@ section {
 .content-heading {
 	font-size: 2.8rem;
 	margin-bottom: 1.2rem;
-	/* color: var(--primary-color); */
 }
 
 /* Endow */
@@ -179,6 +185,7 @@ section {
 
 .list-sales {
 	display: flex;
+	flex-wrap: wrap;
 	margin-left: -1.2rem;
 	margin-right: -1.2rem;
 }
@@ -210,6 +217,8 @@ section {
 
 .sale-item .thumb img {
 	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .sale-item .thumb .favorite-icon,
@@ -339,6 +348,7 @@ section {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	margin-top: 1.6rem;
 }
 
 .see-all .see-all-btn {
@@ -348,10 +358,13 @@ section {
 	color: var(--primary-color);
 	font-size: 1.4rem;
 	font-weight: bold;
+	transition: all 0.3s ease;
 }
 
 .see-all .see-all-btn:hover {
 	cursor: pointer;
+	background-color: var(--primary-color);
+	color: var(--white-color);
 }
 
 /* Special */
@@ -407,6 +420,10 @@ section {
 	font-size: 1.6rem;
 	font-weight: bold;
 	margin-bottom: 1rem;
+}
+
+.special-item .info__name:hover a {
+	color: var(--primary-color);
 }
 
 .special-item .info__rate {
@@ -803,14 +820,42 @@ footer .location-copyright {
 	.container {
 		max-width: 960px;
 	}
+
+	.tab-content .list-input .input-box:nth-child(1),
+	.tab-content .list-input .input-box:nth-child(2) {
+		width: 40%;
+	}
+	.tab-content .list-input .input-box:nth-child(3) {
+		width: 35%;
+	}
+
+	.tab-content .list-input .input-box:nth-child(4) {
+		width: 20%;
+	}
 }
 
 @media screen and (max-width: 768px) {
+	html {
+		font-size: 55%;
+	}
 	.container {
 		max-width: 720px;
 	}
 
+	.see-all .see-all-btn {
+		width: 100%;
+	}
+
 	.favorite-destination-item {
 		width: 50%;
+	}
+
+	.list-sales .col {
+		width: 100%;
+		margin-bottom: 30px;
+	}
+
+	.sale-item .thumb {
+		height: 250px;
 	}
 }

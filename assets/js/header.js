@@ -13,6 +13,20 @@ function loadXML() {
 	xhr.send();
 }
 
+function validateEmail(email) {
+	return String(email)
+		.toLowerCase()
+		.match(
+			/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+		);
+}
+
+function validatePhone(phone) {
+	const regexPhoneNumber = /(84|0[3|5|7|8|9])+([0-9]{8})\b/g;
+
+	return phone.match(regexPhoneNumber);
+}
+
 function updateUI(xhr) {
 	// console.log("Lấy đc dữ liệu");
 	let doc = xhr.responseXML;
@@ -39,6 +53,50 @@ function updateUI(xhr) {
 
 	closeBtn.onclick = function () {
 		popupLogin.classList.remove("active");
+	};
+
+	// Login button click
+	const emailPhoneInput = document.getElementById("email-phone");
+	const messageEmailPhone = document.getElementById("message-email-phone");
+	const passwordInput = document.getElementById("password");
+	const messagePassword = document.getElementById("message-password");
+	const loginBtn = document.querySelector(".login-btn");
+
+	emailPhoneInput.oninput = function () {
+		emailPhoneInput.classList.remove("error");
+		messageEmailPhone.textContent = "";
+	};
+
+	passwordInput.oninput = function () {
+		passwordInput.classList.remove("error");
+		messagePassword.textContent = "";
+	};
+
+	loginBtn.onclick = function () {
+		let check = true;
+		if (emailPhoneInput.value == "") {
+			emailPhoneInput.classList.add("error");
+			messageEmailPhone.textContent = "Cần nhập dữ liệu";
+		}
+		if (passwordInput.value == "") {
+			passwordInput.classList.add("error");
+			messagePassword.textContent = "Cần nhập dữ liệu";
+			check = false;
+		}
+		if (check) {
+			if (
+				!validateEmail(emailPhoneInput.value) &&
+				!validatePhone(emailPhoneInput.value)
+			) {
+				messageEmailPhone.textContent = "Email hoặc Sđt không hợp lệ";
+				emailPhoneInput.classList.add("error");
+				check = false;
+				alert("Đăng nhập thất bại");
+			} else {
+				alert("Đăng nhập thành công");
+				window.location.href = "account.html";
+			}
+		}
 	};
 }
 

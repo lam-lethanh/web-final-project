@@ -30,5 +30,30 @@ document.getElementById('modal').addEventListener("click", function() {
 })
 document.querySelector('.modal__logout-content').addEventListener("click", function(event) {
  event.stopPropagation();
+/*--------------------------------*/
+
+
+
+
+})
+document.getElementById('openModalRating').addEventListener("click", function() {
+  document.getElementById("modal2").classList.add("active");
+})
+document.getElementById("form-rating__row-btn--send").addEventListener("click", function() {
+  alert("Gửi đánh giá thành công!")
+})
+const close = document.querySelector("#form-rating__row-btn--close");
+
+close.addEventListener("click", function () {
+      document.getElementById("modal2").classList.remove("active");
+    });
+
+
+document.getElementById('modal2').addEventListener("click", function() {
+document.getElementById("modal2").classList.remove("active");
+
+})
+document.querySelector('.modal__rating-content').addEventListener("click", function(event) {
+event.stopPropagation();
 
 })
