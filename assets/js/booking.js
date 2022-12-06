@@ -65,7 +65,7 @@ function getTour() {
           <div class="payment-info__product row">
             <img src="./assets/image/tours/${tour.image[0]}" alt="" />
             <div class="payment-info__product-title">
-            ${tour.name} <br><br>  Giảm giá vé: ${tour.discount}
+            ${tour.name} <br><br>  Giảm giá vé: ${tour.discount}%
             </div>
           </div>
         </div>
