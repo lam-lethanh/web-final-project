@@ -7,7 +7,7 @@
     <nav>
     
         <div class="nav-item">
-            <a href="">
+            <a href="tour-results.html">
                 <span class="material-icons-sharp nav-item__icon"> flight </span>
                 <span class="nav-item__name">Du lịch</span>
                 <span class="material-icons-outlined">
@@ -16,18 +16,18 @@
             </a>
             <ul class="sub-nav">
                 <li class="sub-nav-item">
-                    <a href="">Du lịch Miền Bắc</a>
+                    <a href="tour-results.html?region=MB">Du lịch miền Bắc</a>
                 </li>
                 <li class="sub-nav-item">
-                    <a href="">Du lịch Miền Nam</a>
+                    <a href="tour-results.html?region=MN">Du lịch miền Nam</a>
                 </li>
                 <li class="sub-nav-item">
-                    <a href="">Du lịch Miền Trung</a>
+                    <a href="tour-results.html?region=MT">Du lịch miền Trung</a>
                 </li>
             </ul>
         </div>
         <div class="nav-item">
-            <a href="">
+            <a href="promotion.html">
                 <span class="material-icons-sharp nav-item__icon">
                     local_offer
                 </span>
@@ -41,13 +41,13 @@
             </a>
         </div>
         <div class="nav-item">
-            <a href="#">
+            <a href="contact.html">
                 <span class="material-icons-sharp nav-item__icon"> call </span>
                 <span class="nav-item__name">Liên hệ</span>
             </a>
         </div>
         <div class="nav-item">
-            <a href="">
+            <a href="aboutus.html">
                 <span class="material-icons-sharp nav-item__icon"> groups </span>
                 <span class="nav-item__name">Về chúng tôi</span>
             </a>
@@ -108,6 +108,11 @@
                     <div class="no-account">
                         Nếu bạn chưa có tài khoản? <a href="" class="link">Đăng ký</a>
                     </div>
+                </div>
+                <div class="close-btn">
+                    <span class="material-icons-outlined close-icon">
+                        close
+                        </span>
                 </div>
             </div>
         </div>
