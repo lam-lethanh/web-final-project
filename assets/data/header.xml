@@ -63,6 +63,11 @@
                 class="search-input" />
             <span class="material-icons-sharp search-icon"> search </span>
         </div>
+        <div class="menu-btn">
+            <span class="material-icons-outlined menu-icon">
+                menu
+                </span>
+        </div>
         <div class="account">
             <span class="material-icons-outlined account-icon">
                 account_circle
@@ -71,18 +76,24 @@
             <div class="popup-login">
                 <div class="heading-login">Đăng nhập tài khoản</div>
                 <div class="form-login">
-                    <input
-                        type="text"
-                        class="input-value"
-                        name="email-phone"
-                        id="email-phone"
-                        placeholder="Email hoặc số điện thoại" />
-                    <input
+                    <div class="input-box">
+                        <input
+                            type="text"
+                            class="input-value"
+                            name="email-phone"
+                            id="email-phone"
+                            placeholder="Email hoặc số điện thoại" />
+                            <div class="message" id="message-email-phone"></div>
+                        </div>
+                    <div class="input-box">
+                        <input
                         type="password"
                         class="input-value"
                         name="password"
                         id="password"
                         placeholder="Mật khẩu" />
+                        <div class="message" id="message-password"></div>
+                    </div>
                     <div class="remember-forgot">
                         <div class="remember-login">
                             <input type="checkbox" name="remember" id="remember" />
@@ -90,7 +101,9 @@
                         </div>
                         <a class="link" href="">Quên mật khẩu</a>
                     </div>
-                    <button class="login-btn">Đăng nhập</button>
+                    <button class="login-btn">
+                            Đăng nhập
+                    </button>
                     <div class="another-login">
                         <span>Hoặc đăng nhập bằng</span>
                     </div>
@@ -116,10 +129,6 @@
                 </div>
             </div>
         </div>
-        <div class="menu-btn">
-            <span class="material-icons-outlined menu-icon">
-                menu
-                </span>
-        </div>
     </div>
+    
 </header>
