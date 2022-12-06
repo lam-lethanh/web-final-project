@@ -1,7 +1,7 @@
 <header>
     <div class="logo">
         <a class="logo-link" href="home.html">
-            <img src="assets/image/Logo.png" alt="#" />
+            <img src="./assets/image/Logo.png" alt="#" />
         </a>
     </div>
     <nav>
@@ -109,13 +109,13 @@
                     </div>
                     <div class="login-logo">
                         <div>
-                            <img src="assets/image/logo-login/google.png" alt="" />
+                            <img src="./assets/image/logo-login/google.png" alt="" />
                         </div>
                         <div>
-                            <img src="assets/image/logo-login/facebook.png" alt="" />
+                            <img src="./assets/image/logo-login/facebook.png" alt="" />
                         </div>
                         <div>
-                            <img src="assets/image/logo-login/apple.png" alt="" />
+                            <img src="./assets/image/logo-login/apple.png" alt="" />
                         </div>
                     </div>
                     <div class="no-account">

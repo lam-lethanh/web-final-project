@@ -13,7 +13,7 @@ fetch("./assets/data/promotion.json")
         html += `
         <div class="list-content">
                 <div class="list-img">
-                    <img src="/assets/image/promotion/${content.image}" alt="">
+                    <img src="./assets/image/promotion/${content.image}" alt="">
                 </div>
                 <div class="content-description">
                     <span class="des-title">${content.title}</span>  

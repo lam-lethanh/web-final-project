@@ -15,7 +15,7 @@ function getRndInteger(min, max) {
 }
 let listTour = [];
 // Get tourDetail
-fetch("assets/data/tours.json")
+fetch("./assets/data/tours.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);

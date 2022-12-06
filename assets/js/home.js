@@ -1,5 +1,5 @@
 // Load select item
-fetch("assets/data/list-start-location.json")
+fetch("./assets/data/list-start-location.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);
@@ -17,7 +17,7 @@ fetch("assets/data/list-start-location.json")
 		document.getElementById("start-location").innerHTML = html;
 	});
 
-fetch("assets/data/list-end-location.json")
+fetch("./assets/data/list-end-location.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);
@@ -52,7 +52,7 @@ const favoriteIcon = document.querySelector(".favorite-icon");
 const favoriteIconYes = document.querySelector(".favorite-icon-yes");
 
 // Load sales
-fetch("assets/data/sales.json")
+fetch("./assets/data/sales.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);
@@ -73,7 +73,7 @@ fetch("assets/data/sales.json")
 			<div class="sale-item">
 				<div class="thumb">
 					<a href="tour_detail.html?id=${tourSale.id}">
-						<img src="assets/image/tours/${tourSale.image[0]}" alt="" />
+						<img src="./assets/image/tours/${tourSale.image[0]}" alt="" />
 					</a>
 					<span class="material-icons-sharp favorite-icon">
 						favorite_border
@@ -127,7 +127,7 @@ fetch("assets/data/sales.json")
 	});
 
 // Load favorite destination
-fetch("assets/data/favorite-destination.json")
+fetch("./assets/data/favorite-destination.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);
@@ -143,7 +143,7 @@ fetch("assets/data/favorite-destination.json")
 				<div class="thumb">
 					<a href="tour-results.html?location=${item.id}">
 						<img
-							src="assets/image/favorite-destination/${item.thumb}"
+							src="./assets/image/favorite-destination/${item.thumb}"
 							alt="" />
 					</a>
 				</div>
@@ -160,7 +160,7 @@ fetch("assets/data/favorite-destination.json")
 	});
 
 // Load choose us
-fetch("assets/data/choose-us.json")
+fetch("./assets/data/choose-us.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);
@@ -174,7 +174,7 @@ fetch("assets/data/choose-us.json")
 			html += `
 		<div class="choose-us-item">
 			<div class="thumb">
-				<img src="assets/image/choose-us/${item.thumb}" alt="" />
+				<img src="./assets/image/choose-us/${item.thumb}" alt="" />
 			</div>
 			<div class="info">
 				<div class="info__name">${item.name}</div>

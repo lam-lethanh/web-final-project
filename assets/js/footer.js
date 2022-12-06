@@ -1,6 +1,6 @@
 function loadXML() {
 	var xhr = new XMLHttpRequest();
-	xhr.open("GET", "/assets/data/footer.xml", false);
+	xhr.open("GET", "./assets/data/footer.xml", false);
 
 	xhr.onreadystatechange = function () {
 		if (xhr.readyState === 4 && xhr.status === 200) {

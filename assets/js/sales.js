@@ -1,4 +1,4 @@
-fetch("assets/data/sales.json")
+fetch("./assets/data/sales.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);
@@ -19,7 +19,7 @@ fetch("assets/data/sales.json")
 			<div class="sale-item">
 				<div class="thumb">
 					<a href="tour_detail.html?id=${tourSale.id}">
-						<img src="assets/image/tours/${tourSale.image[0]}" alt="" />
+						<img src="./assets/image/tours/${tourSale.image[0]}" alt="" />
 					</a>
 					<span class="material-icons-sharp favorite-icon">
 						favorite_border

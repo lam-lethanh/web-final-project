@@ -1,5 +1,5 @@
 // Load start location and end location
-fetch("assets/data/list-start-location.json")
+fetch("./assets/data/list-start-location.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);
@@ -20,7 +20,7 @@ fetch("assets/data/list-start-location.json")
 		startLocation.getElementsByTagName("option")[0].textContent = "--Tất cả--";
 	});
 
-fetch("assets/data/list-end-location.json")
+fetch("./assets/data/list-end-location.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);
@@ -46,7 +46,7 @@ function getRndInteger(min, max) {
 
 // Load tours
 let favoriteList = [];
-fetch("assets/data/favorite-destination.json")
+fetch("./assets/data/favorite-destination.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);
@@ -72,7 +72,7 @@ fetch("assets/data/favorite-destination.json")
 				<div class="item__thumb">
 					<a href="tour-results.html?location=${data[randomFavorite[i]].id}">
 						<img
-							src="assets/image/favorite-destination/${data[randomFavorite[i]].thumb}"
+							src="./assets/image/favorite-destination/${data[randomFavorite[i]].thumb}"
 							alt="" />
 					</a>
 				</div>
@@ -137,7 +137,7 @@ function loadListTour(listTour) {
 			<div class="result-item">
 				<div class="thumb">
 					<a href="tour_detail.html?id=${listTour[i].id}">
-						<img src="assets/image/tours/${listTour[i].image[0]}" alt="" />
+						<img src="./assets/image/tours/${listTour[i].image[0]}" alt="" />
 					</a>
 					<span class="material-icons-sharp favorite-icon">
 						favorite_border
@@ -205,7 +205,7 @@ function loadListTour(listTour) {
 // Load tours
 const tours = [];
 let listTourCurrent = [];
-fetch("assets/data/tours.json")
+fetch("./assets/data/tours.json")
 	.then(function (response) {
 		if (!response.ok) {
 			throw new Error("HTTP error, status = " + response.status);
