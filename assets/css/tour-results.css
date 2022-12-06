@@ -21,7 +21,7 @@ select:focus {
 }
 
 .filter-results .name-result {
-	font-size: 2.2rem;
+	font-size: 1.8rem;
 	background-color: #cfe9f8;
 	color: var(--primary-color);
 	padding: 4px 16px;
@@ -271,6 +271,7 @@ select:focus {
 	-webkit-line-clamp: 3;
 	overflow: hidden;
 	transition: all 0.3s ease;
+	min-height: 63px;
 }
 
 .result-item .info__name:hover {

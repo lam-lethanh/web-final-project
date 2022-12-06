@@ -179,6 +179,7 @@ section {
 
 .list-sales {
 	display: flex;
+	flex-wrap: wrap;
 	margin-left: -1.2rem;
 	margin-right: -1.2rem;
 }
@@ -194,6 +195,7 @@ section {
 
 	transition: all 0.2s linear;
 	box-shadow: 0.3rem 0.7rem 1.8rem 0.3rem #ddd;
+	margin-bottom: 20px;
 }
 
 .sale-item:hover {
@@ -203,6 +205,7 @@ section {
 .sale-item .thumb {
 	position: relative;
 	width: 100%;
+	height: 220px;
 	overflow: hidden;
 	border-top-left-radius: var(--border-radius-img-item);
 	border-top-right-radius: var(--border-radius-img-item);
@@ -210,6 +213,7 @@ section {
 
 .sale-item .thumb img {
 	width: 100%;
+	height: 100%;
 }
 
 .sale-item .thumb .favorite-icon,
@@ -264,9 +268,10 @@ section {
 }
 
 .sale-item .info__name {
-	font-size: 2.2rem;
+	font-size: 1.8rem;
 	font-weight: bold;
 	margin: 1rem 0;
+	min-height: 72px;
 }
 
 .sale-item .info__code {
@@ -339,10 +344,11 @@ section {
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
+	margin-top: 20px;
 }
 
 .see-all .see-all-btn {
-	padding: 0.8rem 1.2rem;
+	padding: 1.2rem;
 	border-radius: var(--border-radius-btn);
 	border: 1px solid var(--primary-color);
 	color: var(--primary-color);
@@ -352,6 +358,14 @@ section {
 
 .see-all .see-all-btn:hover {
 	cursor: pointer;
+	background-color: var(--primary-color);
+	color: var(--white-color);
+}
+
+.see-all .see-all-btn a {
+	display: block;
+	width: 100%;
+	height: 100%;
 }
 
 /* Special */
@@ -812,5 +826,17 @@ footer .location-copyright {
 
 	.favorite-destination-item {
 		width: 50%;
+	}
+
+	.list-sales .col {
+		width: 100%;
+	}
+
+	.sale-item .thumb {
+		height: auto;
+	}
+
+	.see-all .see-all-btn {
+		width: 100%;
 	}
 }
