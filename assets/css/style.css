@@ -179,6 +179,7 @@ section {
 
 .list-sales {
 	display: flex;
+	flex-wrap: wrap;
 	margin-left: -1.2rem;
 	margin-right: -1.2rem;
 }
@@ -210,6 +211,8 @@ section {
 
 .sale-item .thumb img {
 	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 .sale-item .thumb .favorite-icon,
@@ -827,7 +830,7 @@ footer .location-copyright {
 
 @media screen and (max-width: 768px) {
 	html {
-		font-size: 50%;
+		font-size: 55%;
 	}
 	.container {
 		max-width: 720px;
@@ -839,5 +842,14 @@ footer .location-copyright {
 
 	.favorite-destination-item {
 		width: 50%;
+	}
+
+	.list-sales .col {
+		width: 100%;
+		margin-bottom: 30px;
+	}
+
+	.sale-item .thumb {
+		height: 250px;
 	}
 }
