@@ -387,6 +387,7 @@ button {
 	margin: 8px 0;
 }
 .maybe-like__item-title {
+	height: 6.5rem;
 	font-size: 1.6rem;
 	color: var(--primary-color);
 	font-weight: bold;
