@@ -252,7 +252,7 @@ fetch("assets/data/tours.json")
 
 					htmlTimelineDays += `
                     <div class="timeline__right-days--day">
-                        Ngày ${i + 1}
+                        Ngày ${Number(i) + 1}
                         <p>${dayTimeline}</p>
                     </div>
                     `;
@@ -331,6 +331,11 @@ fetch("assets/data/tours.json")
 					gatherTime[0] = hourDeparture;
 				}
 
+				let vehicle =
+					tour.vehicle.split(",")[0] == "Máy bay"
+						? "flight"
+						: "directions_bus_filled";
+
 				let htmlInfomation = `
                 <div class="information">
                 <div class="information-left">
@@ -347,7 +352,7 @@ fetch("assets/data/tours.json")
                                 </div>
                                 <div class="line-transport">
                                     <span class="material-icons-outlined">
-                                        directions_bus_filled
+                                        ${vehicle}
                                     </span>
                                 </div>
                                 <div class="information__detail-left-location-pre">
@@ -367,7 +372,7 @@ fetch("assets/data/tours.json")
                                 </div>
                                 <div class="line-transport">
                                     <span class="material-icons-outlined">
-                                        directions_bus_filled
+                                        ${vehicle}
                                     </span>
                                 </div>
                                 <div class="information__detail-left-location-pre">
