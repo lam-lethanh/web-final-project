@@ -129,6 +129,13 @@ function showHidepassword() {
 function register() {
     document.getElementById("registerForm").submit();
 }
+// document.getElementById("btn-register").addEventListener('click', function () {
+//       let isValid = validationInput();
+//       if (isValid) {
+//           alert('Gửi đăng ký thành công');
+//       }
+//   });
+  
 function validationInput() {
     if (document.querySelector("#name").value == "") {
       alert("Bạn chưa nhập tên");
@@ -152,16 +159,18 @@ function validationInput() {
         return;
       }
     }
-    if (document.querySelector("#password").innerHTML == "") {
+    if (document.querySelector("#pass").innerHTML == "") {
       alert("Bạn chưa nhập mật khẩu");
       return;
     }
-    if (document.querySelector("#passwordagain").innerHTML == "") {
+    if (document.querySelector("#confirmpass").innerHTML == "") {
       alert("Vui lòng nhập lại mật khẩu");
       return;
     }
-    register();
+  register();
+
   }
+
   function validateEmail(email) {
     var re = /\S+@\S+\.\S+/;
     return re.test(email);
