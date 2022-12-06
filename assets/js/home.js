@@ -35,6 +35,19 @@ fetch("assets/data/list-end-location.json")
 		document.getElementById("end-location").innerHTML = html;
 	});
 
+// Tab item
+const tabItems = document.querySelectorAll(".tab-item");
+for (let i = 0; i < tabItems.length; i++) {
+	tabItems[i].onclick = function () {
+		for (let i = 0; i < tabItems.length; i++) {
+			if (tabItems[i].classList.contains("active")) {
+				tabItems[i].classList.remove("active");
+			}
+		}
+		tabItems[i].classList.add("active");
+	};
+}
+
 const favoriteIcon = document.querySelector(".favorite-icon");
 const favoriteIconYes = document.querySelector(".favorite-icon-yes");
 
@@ -65,7 +78,7 @@ fetch("assets/data/favorite-destination.json")
 			html += `
 			<div class="favorite-destination-item">
 				<div class="thumb">
-					<a href="">
+					<a href="tour-results.html?location=${item.id}">
 						<img
 							src="assets/image/favorite-destination/${item.thumb}"
 							alt="" />
