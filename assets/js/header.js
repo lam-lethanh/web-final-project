@@ -94,6 +94,7 @@ function updateUI(xhr) {
 				alert("Đăng nhập thất bại");
 			} else {
 				alert("Đăng nhập thành công");
+				window.location.href = "account.html";
 			}
 		}
 	};
