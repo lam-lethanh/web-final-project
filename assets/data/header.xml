@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <div class="no-account">
-                        Nếu bạn chưa có tài khoản? <a href="" class="link">Đăng ký</a>
+                        Nếu bạn chưa có tài khoản? <a href="register.html" class="link">Đăng ký</a>
                     </div>
                 </div>
                 <div class="close-btn">
