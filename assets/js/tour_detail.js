@@ -299,25 +299,42 @@ fetch("./assets/data/tours.json")
 					arrivalTimeStart[1] = minuteDeparture + minuteMoving;
 					arrivalTimeStart[0] = hourMoving + hourDeparture;
 				}
+
+				arrivalTimeStart[1] =
+					arrivalTimeStart[1] < 10
+						? "0" + arrivalTimeStart[1]
+						: arrivalTimeStart[1];
 				arrivalTimeStart[0] =
 					arrivalTimeStart[0] >= 24
 						? arrivalTimeStart[0] - 24
+						: arrivalTimeStart[0];
+
+				arrivalTimeStart[0] =
+					arrivalTimeStart[0] < 10
+						? "0" + arrivalTimeStart[0]
 						: arrivalTimeStart[0];
 
 				// Calculate arrival time end
 				let returnTime = tour.returnTime.split(":");
 				let minuteReturn = Number(returnTime[1]);
 				let hourReturn = Number(returnTime[0]);
+
 				let arrivalTimeEnd = ["", ""];
 
-				if (minuteDeparture + minuteReturn >= 60) {
-					arrivalTimeEnd[1] = minuteReturn + minuteMoving - 60;
+				if (minuteMoving + minuteReturn >= 60) {
+					arrivalTimeEnd[1] = minuteMoving + minuteReturn - 60;
+					console.log(minuteReturn + minuteMoving);
 					arrivalTimeEnd[0] = hourMoving + hourReturn + 1;
 				} else {
 					arrivalTimeEnd[1] = minuteReturn + minuteMoving;
+					arrivalTimeEnd[0] = hourMoving + hourReturn;
 				}
+				arrivalTimeEnd[1] =
+					arrivalTimeEnd[1] < 10 ? "0" + arrivalTimeEnd[1] : arrivalTimeEnd[1];
 				arrivalTimeEnd[0] =
 					arrivalTimeEnd[0] >= 24 ? arrivalTimeEnd[0] - 24 : arrivalTimeEnd[0];
+				arrivalTimeEnd[0] =
+					arrivalTimeEnd[0] < 10 ? "0" + arrivalTimeEnd[0] : arrivalTimeEnd[0];
 
 				// Calculate gather time
 				let gatherTime = ["", ""];
@@ -328,7 +345,10 @@ fetch("./assets/data/tours.json")
 					gatherTime[1] = minuteDeparture - 30;
 					gatherTime[0] = hourDeparture;
 				}
-
+				gatherTime[1] =
+					gatherTime[1] <= 10 ? "0" + gatherTime[1] : gatherTime[1];
+				gatherTime[0] =
+					gatherTime[0] < 10 ? "0" + gatherTime[0] : gatherTime[0];
 				let vehicle =
 					tour.vehicle.split(",")[0] == "Máy bay"
 						? "flight"
