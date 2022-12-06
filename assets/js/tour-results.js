@@ -182,8 +182,24 @@ function loadListTour(listTour) {
 			`;
 	}
 	listResult.innerHTML = htmlList;
-
 	document.querySelector(".number span").textContent = listTour.length;
+
+	const favoriteIcon = document.querySelectorAll(".favorite-icon");
+	const favoriteIconYes = document.querySelectorAll(".favorite-icon-yes");
+
+	for (let i = 0; i < favoriteIcon.length; i++) {
+		favoriteIcon[i].onclick = function () {
+			favoriteIconYes[i].classList.toggle("active");
+			favoriteIconYes[i].style.display = "inline-block";
+			favoriteIcon[i].style.display = "none";
+		};
+
+		favoriteIconYes[i].onclick = function () {
+			favoriteIconYes[i].classList.toggle("active");
+			favoriteIconYes[i].style.display = "none";
+			favoriteIcon[i].style.display = "inline-block";
+		};
+	}
 }
 
 // Load tours
@@ -215,10 +231,10 @@ fetch("assets/data/tours.json")
 				if (params[0] == "region") {
 					titleHeading =
 						params[1] == "MB"
-							? "Miền Bắc"
+							? "Du lịch Miền Bắc"
 							: params[1] == "MN"
-							? "Miền Nam"
-							: "Miền Trung";
+							? "Du lịch Miền Nam"
+							: "Du lịch Miền Trung";
 					for (let tour of tours) {
 						if (tour.code.substring(0, 2) == params[1]) {
 							listTourCurrent.push(tour);
@@ -227,19 +243,18 @@ fetch("assets/data/tours.json")
 				}
 			}
 		} else {
-			titleHeading = "";
+			titleHeading = "Du lịch cùng Travel CE";
 			for (let tour of tours) {
 				listTourCurrent.push(tour);
 			}
 		}
 
 		document.querySelector(".name-result").textContent = titleHeading;
-
+		document.querySelector("title").textContent = titleHeading;
 		let htmlResult = "";
 		let result = document.querySelector(".results");
 
-		document.querySelector(".results .heading").textContent =
-			"Du lịch " + titleHeading;
+		document.querySelector(".results .heading").textContent = titleHeading;
 
 		loadListTour(listTourCurrent);
 	});
