@@ -163,7 +163,7 @@
 	display: none;
 	position: absolute;
 	background-color: #f4f7ff;
-	bottom: -34rem;
+	top: 5rem;
 	right: 0;
 	padding: 12px;
 	width: 30rem;
@@ -204,6 +204,17 @@
 	outline: none;
 	border-radius: var(--border-radius-input);
 	padding: 0.8rem 1.6rem;
+}
+
+.input-value.error {
+	border: 1px solid var(--red-color);
+}
+
+.message {
+	margin: 8px 0;
+	font-size: 1.2rem;
+	color: var(--red-color);
+	/* min-height: 20px; */
 }
 
 .remember-forgot {
@@ -390,6 +401,7 @@
 
 	.form-login {
 		width: 70%;
+		color: #000;
 	}
 
 	.heading-login {
