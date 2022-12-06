@@ -110,7 +110,7 @@ button {
 }
 .main__img-right img {
 	max-width: 100%;
-	padding: 4px;
+	padding: 0 4px 4px 4px;
 	border-radius: 10px;
 }
 
