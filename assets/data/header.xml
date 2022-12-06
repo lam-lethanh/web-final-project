@@ -35,7 +35,7 @@
             </a>
         </div>
         <div class="nav-item">
-            <a href="#">
+            <a href="news.html">
                 <span class="material-icons-sharp nav-item__icon"> feed</span>
                 <span class="nav-item__name">Tin tức</span>
             </a>
