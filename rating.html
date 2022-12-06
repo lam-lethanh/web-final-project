@@ -16,6 +16,7 @@
     <script src="./assets/js/footer.js" defer></script>
     <script src="./assets/js/header.js" defer></script>
     <script src="./assets/js/account.js" defer></script>
+    <link rel="shortcut icon" type="image/png" href="./assets/image/favicon-16x16.png"/>
 </head>
 <body>
     <div id="header">
@@ -86,6 +87,21 @@
                 </div>
                
             </div>
+            <div class="maybe-like__item">
+                <div class="maybe-like__item-img">
+                    <img src="./assets/image/tours/MB0003_4.jpg" alt="">
+                </div>
+                <div class="maybe-like__item-date">23/12/2022</div>
+                <div class="maybe-like__item-title">Đà Nẵng - Huế - Đầm Lập An - La Vang - Động Thiên Đường - KDL Bà Nà - Cầu Vàng</div>
+                <div class="maybe-like__item-departure">
+                    Nơi khởi hành: TP. Hồ Chí Minh
+                </div>
+                <div class="maybe-like__item-price">4,290,000đ</div>
+                <div class="maybe-like__item-btn maybe-like__item-btn--rating">
+                    <button id="openModalRating">Đánh giá</button>
+                    
+                </div>
+            </div>
         </div>
     </div>
     <div class="modal__logout" id="modal">
@@ -97,6 +113,35 @@
                 <button class="modal__close" onclick="location.href='home.html';">Có</button>
                 <button class="modal__close">Không</button>
             </div>
+        </div>
+    </div>
+    <div class="modal__rating" id="modal2">
+        <div class="modal__rating-content">
+            <div class="modal__rating-content--title">
+                Thêm đánh giá
+            </div>
+            <form action="#" class="form-rating">
+                <div class="form-rating__row">
+                    <label for="">Họ và tên</label>
+                    <input type="text">
+                </div>
+                <div class="form-rating__row">
+                    <label for="">Email</label>
+                    <input type="email">
+                </div>
+                <div class="form-rating__row">
+                    <label for="">Số điện thoại</label>
+                    <input type="text">
+                </div>
+                <div class="form-rating__row">
+                    <label for="">Nhập đánh giá</label>
+                    <textarea name="" id="" cols="30" rows="5"></textarea>
+                </div>
+                <div class="form-rating__row-btn">
+                    <button id="form-rating__row-btn--send">Gửi</button>
+                    <button id="form-rating__row-btn--close">Hủy</button>
+                </div>
+            </form>
         </div>
     </div>
     <div id="footer">
