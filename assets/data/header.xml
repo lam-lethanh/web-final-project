@@ -83,7 +83,7 @@
                             name="email-phone"
                             id="email-phone"
                             placeholder="Email hoặc số điện thoại" />
-                            <div class="message" id="message-email-phone"></div>
+                            <div class="message-error" id="message-email-phone"></div>
                         </div>
                     <div class="input-box">
                         <input
@@ -92,7 +92,7 @@
                         name="password"
                         id="password"
                         placeholder="Mật khẩu" />
-                        <div class="message" id="message-password"></div>
+                        <div class="message-error" id="message-password"></div>
                     </div>
                     <div class="remember-forgot">
                         <div class="remember-login">
