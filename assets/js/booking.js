@@ -199,6 +199,7 @@ function addChildren() {
 function buyNow() {
   document.getElementById("infoForm").submit();
 }
+// Check the checkbox and enable input
 function update() {
   let html = "";
   if (document.querySelector("#single-room").checked) {
@@ -209,6 +210,13 @@ function update() {
       document.querySelector(".single-room-price").innerText
     }</span>
   </div>`;
+  document.querySelector('#single_num').disabled=false
+  calTotalPrice()
+  }
+  else {
+  document.querySelector('#single_num').disabled=true
+  document.querySelector('#single_num').value=0
+  calTotalPrice()
   }
   if (document.querySelector("#twin-room").checked) {
     let twinNum = parseInt(document.querySelector("#twin_num").value);
@@ -218,7 +226,14 @@ function update() {
       document.querySelector(".twin-room-price").innerText
     }</span>
   </div>`;
+  document.querySelector('#twin_num').disabled=false
+  calTotalPrice()
   }
+  else {
+    document.querySelector('#twin_num').disabled=true
+    document.querySelector('#twin_num').value=0
+    calTotalPrice()
+    }
   if (document.querySelector("#double-room").checked) {
     let doubleNum = parseInt(document.querySelector("#double_num").value);
     html += `<div class="row between">
@@ -227,7 +242,14 @@ function update() {
       document.querySelector(".double-room-price").innerText
     }</span>
   </div>`;
+  document.querySelector('#double_num').disabled=false
+  calTotalPrice()
   }
+  else {
+    document.querySelector('#double_num').disabled=true
+    document.querySelector('#double_num').value=0
+    calTotalPrice()
+    }
   if (document.querySelector("#triple-room").checked) {
     let tripleNum = parseInt(document.querySelector("#triple_num").value);
     html += `<div class="row between">
@@ -236,7 +258,14 @@ function update() {
       document.querySelector(".triple-room-price").innerText
     }</span>
   </div>`;
+  document.querySelector('#triple_num').disabled=false
+  calTotalPrice()
   }
+  else {
+    document.querySelector('#triple_num').disabled=true
+    document.querySelector('#triple_num').value=0
+    calTotalPrice()
+    }
   document.querySelector(".hotel").innerHTML = html;
 }
 function updateCustomer() {
@@ -308,6 +337,7 @@ function calTotalPrice() {
 
   if (document.querySelector("#single-room").checked) {
     singleNum = parseInt(document.querySelector("#single_num").value);
+    
     singlePrice = parseInt(
       document
         .querySelector(".single-room-price")

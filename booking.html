@@ -10,7 +10,7 @@
 
     <link rel="stylesheet" href="./assets/css/header.css" />
     <link rel="stylesheet" href="./assets/css/footer.css" />
-
+    <link rel="shortcut icon" type="image/png" href="./assets/image/favicon-16x16.png"/>
     <!-- Link js -->
     <script src="./assets/js/header.js" defer></script>
     <script src="./assets/js/footer.js" defer></script>
@@ -244,7 +244,9 @@
                       type="text"
                       name=""
                       id="single_num"
-                      oninput="update();calTotalPrice()"
+                      disabled
+                      value="0"
+                      oninput="update()"
                     />
                   </td>
                   <td class="single-room-price"></td>
@@ -268,7 +270,9 @@
                       type="text"
                       name=""
                       id="twin_num"
-                      oninput="update();calTotalPrice()"
+                      disabled
+                      value="0"
+                      oninput="update()"
                     />
                   </td>
                   <td class="twin-room-price"></td>
@@ -281,6 +285,7 @@
                       type="checkbox"
                       name=""
                       id="double-room"
+                      
                     />
                     <label for="double-room"
                       >Phòng double (2 giường đơn cho 2 người)</label
@@ -292,7 +297,9 @@
                       type="text"
                       name=""
                       id="double_num"
-                      oninput="update();calTotalPrice()"
+                      disabled
+                      value="0"
+                      oninput="update()"
                     />
                   </td>
                   <td class="double-room-price"></td>
@@ -317,7 +324,9 @@
                       type="text"
                       name=""
                       id="triple_num"
-                      oninput="update();calTotalPrice()"
+                      disabled
+                      value="0"
+                      oninput="update()"
                     />
                   </td>
                   <td class="triple-room-price"></td>
