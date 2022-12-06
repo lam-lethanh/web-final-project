@@ -61,10 +61,8 @@ fetch("./assets/data/tours.json")
                                 ${price}đ<span>/khách</span>
                             </p>
                             <button class="main__heading-right--book">
-                                <a href="booking.html?id=${tour.id}">
                                     <span class="material-icons-outlined"> shopping_cart </span>
                                     Đặt ngay
-		                        </a>
                             </button>
                         </div>
                         <div class="main__heading-right-bottom">
@@ -480,4 +478,29 @@ fetch("./assets/data/tours.json")
 		}
 
 		document.querySelector(".maybe-like__list").innerHTML = htmlMaybeLike;
+
+		// Modal pop-up
+		const modal = document.querySelector(".modal");
+		const loginBtn = document.getElementById("login-btn");
+		const continueBtn = document.getElementById("continue-btn");
+		const bookBtn = document.querySelector(".main__heading-right--book");
+		let isLogin = false;
+
+		bookBtn.onclick = function () {
+			modal.style.display = "flex";
+		};
+
+		loginBtn.onclick = function () {
+			modal.style.display = "none";
+		};
+
+		continueBtn.onclick = function () {
+			window.location.href = `booking.html?id=${getParams().id}`;
+		};
+
+		window.onclick = function (event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		};
 	});
