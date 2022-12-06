@@ -4,9 +4,15 @@ section {
 
 /* Banner */
 #banner {
+	margin-top: calc(var(--header-height) + 30px);
 	width: 100%;
 	height: 45rem;
-	background-color: var(--primary-color);
+}
+
+#banner img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
 }
 
 #quick-search {
