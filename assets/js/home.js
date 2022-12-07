@@ -91,7 +91,7 @@ fetch("./assets/data/sales.json")
 				tourSale.time.split("-")[0]
 			} ngày </span>
 					<div class="info__name">
-						<a href="${tourSale.id}">
+						<a href="tour_detail.html?id=${tourSale.id}">
 							${tourSale.name}
 						</a>
 					</div>
