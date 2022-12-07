@@ -4,11 +4,12 @@
             <div class="info">
                 <h3 class="title">Thông tin</h3>
                 <div class="list">
-                    <a href="" class="item">Khuyến mãi</a>
-                    <a href="" class="item">Tin tức</a>
-                    <a href="" class="item">Cẩm nang</a>
-                    <a href="" class="item">Kinh nghiệm</a>
-                    <a href="" class="item">Về chúng tôi</a>
+                    <a href="promotion.html" class="item">Khuyến mãi</a>
+                    <a href="news.html" class="item">Tin tức</a>
+                    <a href="handbook.html" class="item">Cẩm nang</a>
+                    <a href="experience.html" class="item">Kinh nghiệm</a>
+                    <a href="aboutus.html" class="item">Về chúng tôi</a>
+                    <a href="policy.html" class="item">Chính sách</a>
                 </div>
                 <div class="logo">
                     <img src="./assets/image/Logo.png" alt="" />
