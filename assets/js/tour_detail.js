@@ -484,12 +484,7 @@ fetch("./assets/data/tours.json")
         </div>
         <div class="maybe-like__item-price">${price}đ</div>
         <div class="maybe-like__item-btn">
-            <button>
-            <a href="booking.html?id=${maybeLikeTour.id}">
-                Đặt ngay
-            </a>
-            </button>
-            <button>
+            <button class= "maybe-like__item-btn--details">
                 <a href="tour_detail.html?id=${maybeLikeTour.id}">Xem chi tiết</a>
             </button>
         </div>
@@ -507,7 +502,7 @@ fetch("./assets/data/tours.json")
 		let isLogin = false;
 
 		bookBtn.onclick = function () {
-			modal.style.display = "flex";
+			if (!isLogin) modal.style.display = "flex";
 		};
 
 		loginBtn.onclick = function () {
