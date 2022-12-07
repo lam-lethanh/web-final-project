@@ -370,9 +370,6 @@ button {
 	padding: 12px;
 	border-radius: 10px;
 }
-.maybe-like__item:hover {
-		transform: translateY(-0.5rem);
-}
 .maybe-like__item-img {
 	width: 100%;
 	height: 200px;
@@ -390,7 +387,6 @@ button {
 	margin: 8px 0;
 }
 .maybe-like__item-title {
-	height: 6.5rem;
 	font-size: 1.6rem;
 	color: var(--primary-color);
 	font-weight: bold;
@@ -416,16 +412,7 @@ button {
 	justify-content: space-between;
 }
 
-.maybe-like__item-btn button:nth-child(1) {
-	background-color: var(--red-color);
-	color: #fff;
-	font-weight: 600;
-	padding: 4px 12px;
-	border: none;
-	border-radius: 5px;
-	width: 100px;
-}
-.maybe-like__item-btn button:nth-child(2) {
+.maybe-like__item-btn--details {
 	background-color: #fff;
 	color: var(--primary-color);
 	font-weight: 600;
@@ -435,7 +422,7 @@ button {
 	width: 100px;
 }
 
-.maybe-like__item-btn button:nth-child(2):hover {
+.maybe-like__item-btn--details:hover {
 	color: var(--white-color);
 	background-color: var(--primary-color);
 }
