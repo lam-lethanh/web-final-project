@@ -370,6 +370,10 @@ button {
 	padding: 12px;
 	border-radius: 10px;
 }
+.maybe-like__item:hover {
+	transform: translateY(-0.5rem);
+
+}
 .maybe-like__item-img {
 	width: 100%;
 	height: 200px;
@@ -387,6 +391,7 @@ button {
 	margin: 8px 0;
 }
 .maybe-like__item-title {
+	height: 6.5rem;
 	font-size: 1.6rem;
 	color: var(--primary-color);
 	font-weight: bold;
