@@ -475,7 +475,7 @@ fetch("./assets/data/tours.json")
         </div>
         <div class="maybe-like__item-date">${maybeLikeTour.dateStart}</div>
         <div class="maybe-like__item-title">
-            <a href="tour_detail.html?id=">
+            <a href="tour_detail.html?id=${maybeLikeTour.id}">
             ${maybeLikeTour.name}
             </a>
         </div>
